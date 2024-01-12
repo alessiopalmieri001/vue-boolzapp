@@ -23,6 +23,9 @@ html{
 img{
     height: 100%;
 }
+.chat-left{
+    border-right: 1px solid black;
+}
 #app{
     width: 90%;
     height: 90%;
@@ -51,7 +54,8 @@ img{
 }
 #app > * > header > div > i{
     
-    padding: 5px;
+    padding: 10px;
+    color: #b1b1b1;
     
 }
 
@@ -61,4 +65,19 @@ img{
 
 .chat-right{
     width: 60%;
+}
+
+.notifiche{
+    height: 80px;
+    background-color: #8edafc;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+}
+
+.notifiche div:first-child {
+    border-radius: 50%;
+    background-color: white;
+    padding:10px;
+    margin-right: 10px;
 }
