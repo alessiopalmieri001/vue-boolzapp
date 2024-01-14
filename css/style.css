@@ -23,6 +23,9 @@ html{
 img{
     height: 100%;
 }
+.chat-left{
+    border-right: 1px solid black;
+}
 #app{
     width: 90%;
     height: 90%;
@@ -36,7 +39,24 @@ img{
     display: flex;
     justify-content: space-between;
 }
-
+#app > * > header > div {
+    
+    display: flex;
+    align-items: center;
+    
+}
+#app > * > header > div > img{
+    
+    border-radius: 50%;
+    margin-left: 10px;
+    padding: 5px;
+    
+}
+#app > * > header > div > i{
+    
+    padding: 5px;
+    
+}
 
 .chat-left{
     width: 40%;
@@ -44,4 +64,106 @@ img{
 
 .chat-right{
     width: 60%;
+}
+
+.notifiche{
+    height: 80px;
+    background-color: #8edafc;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+}
+
+.notifiche div:first-child {
+    border-radius: 50%;
+    background-color: white;
+    padding:10px;
+    margin-right: 10px;
+}
+.searchClass{
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px 10px;
+    background-color: white;
+}
+.searchClass > div,
+.searchClass > input {
+    padding: 10px;
+    border: 1px solid black;
+    
+}
+
+.searchClass > input{
+    flex-grow: 1;
+}
+.lastChat{
+    height: calc(100% - 200px);
+    overflow-y: auto;
+}
+
+/* chat main */
+.chat{
+    height: calc(100% - 130px);
+    overflow-y: auto;
+    background-image: url("../img/mine.jpg");
+    
+}
+
+.rowChat{
+    height: 90px;
+    width: 100%;
+    
+}
+.msgGeneral{
+    display: flex;
+}
+.msg{
+    padding: 20px;
+
+}
+.send{
+    background-color: #d5f9ba;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+.recived{
+    background-color: #ffffff;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+
+/* chatBar right section */
+.chatBar{
+    height: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.chatBar a{
+    width: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+    
+
+
+.chatBar .fa-face-smile,
+.chatBar .fa-microphone{
+    color: #6b7376;
+    font-size: 20px;
+}
+
+.chatBar input{
+    width: 80%;
+    height: 55px;
+    border: 1px solid rgba(128, 128, 128, 0.199);
+    border-radius: 5px;
 }
