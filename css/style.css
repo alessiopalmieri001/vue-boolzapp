@@ -54,7 +54,12 @@ img{
 }
 #app > * > header > div > i{
     
+<<<<<<< HEAD
     padding: 5px;
+=======
+    padding: 10px;
+    color: #b1b1b1;
+>>>>>>> 25c97286ba7f21aa0c3643e8762605e544498612
     
 }
 
