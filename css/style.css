@@ -81,3 +81,66 @@ img{
     padding:10px;
     margin-right: 10px;
 }
+.searchClass{
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px 10px;
+    background-color: white;
+}
+.searchClass > div,
+.searchClass > input {
+    padding: 10px;
+    border: 1px solid black;
+    
+}
+
+.searchClass > input{
+    flex-grow: 1;
+}
+.lastChat{
+    height: calc(100% - 200px);
+    overflow-y: auto;
+}
+
+/* chat main */
+.chat{
+    height: calc(100% - 130px);
+    overflow-y: auto;
+    background-image: url("../img/mine.jpg");
+    display: flex;
+}
+
+
+
+/* chatBar right section */
+.chatBar{
+    height: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.chatBar a{
+    width: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+    
+
+
+.chatBar .fa-face-smile,
+.chatBar .fa-microphone{
+    color: #6b7376;
+    font-size: 20px;
+}
+
+.chatBar input{
+    width: 80%;
+    height: 55px;
+    border: 1px solid rgba(128, 128, 128, 0.199);
+    border-radius: 5px;
+}
