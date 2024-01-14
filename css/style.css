@@ -1,167 +1,372 @@
 /* reset */
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-html{
-    font-family: Arial, Helvetica, sans-serif;
-    
-}
 
 
-#whatsapp-container{
-    width: 100%;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: rgb(0,150,136);
-    background: linear-gradient(180deg, rgba(0,150,136,1) 20%, rgba(217,219,212,1) 20%);
-}
-img{
-    height: 100%;
-}
-.chat-left{
-    border-right: 1px solid black;
-}
-#app{
-    width: 90%;
-    height: 90%;
-    background-color: whitesmoke;
-    display: flex;
+body {
+    background-color: var(--primary-first);
 }
 
-#app > * > header{
-    height: 60px;
-    background-color: #eaeaea;
-    display: flex;
-    justify-content: space-between;
+img {
+    max-width: 100%;
 }
-#app > * > header > div {
-    
-    display: flex;
-    align-items: center;
-    
+
+li {
+    list-style-type: none;
 }
-#app > * > header > div > img{
-    
+
+:root {
+    /* Dark Mode */
+    --background-color-primary: #ebebeb;
+    --background-color-secondary: #fafafa;
+    --accent-color: #cacaca;
+    --text-primary-color: #222;
+    /* Webpage background color */
+    --primary-first: #111B21;
+    /* Header, footer, received messages, search input, left chat hover */
+    --primary-second: #202C33;
+    /* Webpage font color */
+    --primary-third: #fff;
+    /* Left side active chat */
+    --secondary-first: #2A3942;
+    /* Webapp icons */
+    --secondary-second: #8696A0;
+    /* Sent messages */
+    --secondary-third: #005C4B;
+    /* Left side update and message received, page loader */
+    --accent-first: #00A884;
+    /* Left side bottom link, end-to-end */
+    --accent-second: #53BDEB;
+    /* Left side */
+    --accent-notification: #182229;
+    /* Main content side */
+    --primary-fourth: #0B141A;
+    /* Lines */
+    --lines: #2F3B43;
+    /* Hover icons */
+    --hvr-icons: #848488;
+    /* Default size */
+
+}
+
+#darkMode{
+    background: rgb(0,0,0);
+    background: linear-gradient(180deg, rgba(0,0,0,1) 20%, rgba(133,133,133,1) 80%);
+}
+.ms_main-content {
+    height: 850px;
+    background-color: var(--primary-second);
+}
+i{
+    color: var(--secondary-second)
+}
+
+.bell{
+    background-color: white;
     border-radius: 50%;
-    margin-left: 10px;
-    padding: 5px;
-    
 }
-#app > * > header > div > i{
-    
-
-
-.chat-left{
-    width: 40%;
-}
-
-.chat-right{
-    width: 60%;
-}
-
-.notifiche{
-    height: 80px;
-    background-color: #8edafc;
-    display: flex;
-    align-items: center;
+.bell > i {
     padding: 10px;
 }
-
-.notifiche div:first-child {
-    border-radius: 50%;
-    background-color: white;
-    padding:10px;
-    margin-right: 10px;
+.ms_shadow {
+    box-shadow: 0 0 10px var(--primary-fourth);
 }
-.searchClass{
-    height: 40px;
+
+/* Sidebar */
+.ms_sidebar {
+    height: 850px;
+    background-color: var(--primary-first);
+    border-right: 1px solid var(--lines);
+}
+
+.border-end {
+    border-right: var(--bs-border-width) var(--bs-border-style) #444 !important;
+}
+
+/* Profile Top Bar */
+.ms_profile-bar img,
+.ms_contact-bar img {
+    width: 3.125rem;
+    cursor: pointer;
+}
+
+.ms_profile-bar span,
+.ms_contact-bar span {
+    cursor: pointer;
+}
+
+.ms_profile-bar {
+    background-color: var(--primary-second);
+}
+
+.ms_margin--right {
+    margin-right: auto;
+}
+
+/* Notification Bar */
+.ms_notification-text h5,
+.ms_contacts-card-text h5 {
+    font-size: 0.875rem;
+    color: var(--secondary-second);
+}
+
+.ms_notification-text h5:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.ms_notification-text h4,
+.ms_contacts-card-text h4,
+.ms_contact-info h4 {
+    font-size: 1rem;
+    color: var(--primary-third);
+    line-height: .7em;
+    cursor: pointer;
+}
+
+.ms_notification-bar {
+    background-color: var(--accent-notification);
+}
+
+.ms_notification-bar span {
+    cursor: pointer;
+}
+
+/* Search bar */
+.ms_search-bar input {
+    font-size: 0.875rem;
+}
+
+.input-group-text {
+    background-color: var(--primary-second) !important;
+    border: none !important;
+}
+
+.form-control::placeholder {
+    color: var(--secondary-second) !important;
+}
+
+.form-control {
+    background-color: var(--primary-second) !important;
+    border: none !important;
+    color: var(--primary-third);
+}
+
+.input-group-sm>.form-control {
+    border-radius: .5rem;
+}
+
+.input-group-sm>.input-group-text {
+    border-radius: .5rem;
+}
+
+.form-control:focus {
+    outline: 0;
+    box-shadow: none;
+    color: var(--primary-third);
+}
+
+.ms_search-bar span {
+    cursor: pointer;
+}
+
+/* Footer Sidebar */
+.ms_footer-text {
+    font-size: 0.75rem;
+    color: var(--primary-third);
+    text-align: center;
+}
+
+.ms_footer-text span {
+    color: var(--accent-second);
+    cursor: pointer;
+}
+
+/* Contacts Section */
+.ms_contacts img {
+    width: 3.125rem;
+    cursor: pointer;
+}
+
+.ms_time {
+    color: var(--secondary-second);
+    font-size: 0.75rem;
+}
+
+.ms_margin--left {
+    margin-left: auto;
+}
+
+.ms_contacts-card {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 30px 10px;
-    background-color: white;
-}
-.searchClass > div,
-.searchClass > input {
-    padding: 10px;
-    border: 1px solid black;
-    
 }
 
-.searchClass > input{
-    flex-grow: 1;
-}
-.lastChat{
-    height: calc(100% - 200px);
-    overflow-y: auto;
+.ms_contacts-card h5:hover {
+    text-decoration: none;
 }
 
-/* chat main */
-.chat{
-    height: calc(100% - 130px);
-    overflow-y: auto;
-    background-image: url("../img/mine.jpg");
-    
+.ms_contacts-card:hover {
+    background-color: var(--primary-second);
+    cursor: pointer;
 }
 
-.rowChat{
-    height: 90px;
+.openChat {
+    background-color: var(--primary-second);
+}
+
+.ms_card-info {
+    border-bottom: 1px solid var(--primary-second);
+    padding-bottom: .6em;
+}
+
+.ms_contacts {
+    height: 565px;
+}
+
+/* Hide scrollbar */
+.ms_contacts,
+.ms_main-messages {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    overflow-y: scroll;
+}
+
+.ms_contacts::-webkit-scrollbar,
+.ms_main-messages::-webkit-scrollbar {
+    display: none;
+}
+
+/* Main content messages area */
+.ms_main-messages {
+    background-color: var(--primary-fourth);
+}
+
+.ms_contact-bar,
+.ms_message-bar {
+    background: var(--primary-second);
+    opacity: 1;
+    z-index: 777;
+}
+
+.ms_main-content {
+    position: relative;
+}
+
+#bg {
+    background-size: contain;
+    background: url(../img/sfondo-dark.png);
+    opacity: .1;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    position: absolute;
+}
+
+/* Main area send message bar */
+.ms_message-bar input {
+    font-size: 1.1rem;
+    height: 2em;
+    margin: .7em 0;
     width: 100%;
-    
-}
-.msgGeneral{
-    display: flex;
-}
-.msg{
-    padding: 20px;
-
-}
-.send{
-    background-color: #d5f9ba;
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-}
-.recived{
-    background-color: #ffffff;
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
+    background-color: var(--secondary-first);
+    border: none;
+    border-radius: .5em;
+    color: var(--primary-third);
 }
 
-
-/* chatBar right section */
-.chatBar{
-    height: 70px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.ms_bg-msg:focus {
+    outline: 0;
+    box-shadow: none;
+    color: var(--primary-third);
 }
 
-
-.chatBar a{
-    width: 10%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-    
-
-
-.chatBar .fa-face-smile,
-.chatBar .fa-microphone{
-    color: #6b7376;
-    font-size: 20px;
+.ms_message-bar span {
+    cursor: pointer;
 }
 
-.chatBar input{
+/* Message Bubbles */
+.ms_fit-content {
+    width: fit-content;
+}
+
+.ms_main-messages {
+    color: var(--primary-third);
+}
+
+.ms_container {
     width: 80%;
-    height: 55px;
-    border: 1px solid rgba(128, 128, 128, 0.199);
-    border-radius: 5px;
+    margin: 3vh auto;
 }
+
+.sent {
+    background-color: var(--secondary-third);
+    border-radius: .5em 0 .5em .5em;
+    position: relative;
+    padding: 0.375em 2.5em .4em 0.563em;
+    margin-left: auto;
+    max-width: 45%;
+}
+
+.received {
+    background-color: var(--primary-second);
+    border-radius: 0 .5em .5em .5em;
+    position: relative;
+    max-width: 45%;
+    padding: 0.375em 2.5em 0.5em 0.563em;
+}
+
+.received .ms_time,
+.sent .ms_time {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    font-size: 0.6875rem;
+    padding: 0 .3em .2em 0;
+    color: var(--secondary-second);
+}
+
+.ms_arrow-received {
+    position: absolute;
+    top: 0;
+    left: -0.625em;
+    color: var(--primary-second);
+}
+
+.ms_arrow-sent {
+    position: absolute;
+    top: 0;
+    right: -0.625em;
+    transform: scaleX(-1);
+    color: var(--secondary-third);
+}
+
+.ms_arrow-edit-s {
+    position: absolute;
+    top: 0.125rem;
+    right: 0.125rem;
+    color: var(--hvr-icons);
+    cursor: pointer;
+    display: none;
+}
+
+/* Tick for dropdown menu */
+.ms_arrow-edit-r {
+    position: absolute;
+    top: 0.125rem;
+    right: 0.125rem;
+    transform: scaleX(-1);
+    color: var(--hvr-icons);
+    cursor: pointer;
+    display: none;
+}
+
+.mb-4:hover .ms_arrow-edit-r,
+.mb-4:hover .ms_arrow-edit-s {
+    display: block;
+}
+

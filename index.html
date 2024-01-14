@@ -1,125 +1,160 @@
-<!DOCTYPE html>
+
 <html lang="en">
+
     <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>whatsapp</title>
-        <!-- font awesome cdn -->
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-        <!-- Vue -->
-        <script src="https://unpkg.com/vue@3"></script>
-        <!-- my bootstrap -->
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-        <!-- my css -->
-        <link rel="stylesheet" href="css/style.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- font awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- my vue -->
+    <script language="JavaScript" type="text/javascript" src='https://unpkg.com/vue@3/dist/vue.global.js' defer></script>
+    <!-- my js -->
+    <script language="JavaScript" type="text/javascript" src="./js/scripts.js" defer></script>
+    <!-- my bootstrap -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
+    <script language="JavaScript" type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" defer></script>
+    <!-- my css -->
+    <link rel="stylesheet" href="css/style.css" />
+
+    <title>BoolsApp</title>
     </head>
-    <body>
-        <main id="whatsapp-container">
-            <div id="app">
-                <!-- parte sinistra -->
-                <aside class="chat-left">
-                    <header>
-                        <div>
-                            <img src="img/avatar_io.jpg" alt="io">
-                            <span>sofia</span>
-                        </div>
-                        <div>
-                            <i class="fa-solid fa-circle-notch"></i>
-                            <i class="fa-solid fa-comment"></i>
-                            <i class="fa-solid fa-ellipsis-vertical"></i>
-                        </div>
-                    </header>
-                    <section class="notifiche">
-                        <div>
-                            <i class="fa-solid fa-bell-slash"></i>
-                        </div>
-                        <div>
-                            <h4>
-                                Ricevi notiche di nuovi messaggi 
-                            </h4>
-                            <u>
-                                Attiva le notifiche desktop
-                            </u>
-                        </div>
-                    </section>
-                    <section class="searchClass">
-                        <div>
+
+    <body id="darkMode">
+    <div v-cloak id="app">
+        <div class="container mt-5 ms_shadow">
+            <div class="row">
+                <!-- lato sinistro chat -->
+                <div class="col-4 ms_sidebar px-0">
+                <!-- barra sinistra con profilo -->
+                <div class="ms_profile-bar d-flex align-items-center justify-content-end px-3 py-2 gap-3">
+                    <img class="rounded-circle ms_margin--right" src="./img/avatar_io.jpg" alt="Profile picture">
+                    <!-- icone barra sinistra -->
+                    <span>
+                        <i class="fa-solid fa-people-group"></i>
+                    </span>
+                    <span>
+                        <i class="fa-solid fa-circle-notch"></i>
+                    </span>
+                    <span>
+                        <i class="fa-solid fa-message"></i>
+                    </span>
+                    <span>
+                        <i class="fa-solid fa-ellipsis-vertical"></i>
+                    </span>
+                </div>
+                <!-- barra notifiche -->
+                <div class="ms_notification-bar d-flex align-items-center px-3 py-3">
+                    <div class="bell">
+                        <i class="fa-solid fa-bell-slash"></i>
+                    </div>
+                    <div class="ms_margin--right ms_notification-text mt-3 px-3">
+                    <h4>Ricevi notifiche di nuovi messaggi</h4>
+                    <h5>Attiva notifiche desktop
+                        <span>
+                            <i class="fa-solid fa-x"></i>
+                        </span>
+                    </h5>
+                    </div>
+                    <span>
+                        <i class="fa-solid fa-x"></i>
+                    </span>
+                </div>
+                <!-- Search bar -->
+                <div class="ms_search-bar d-flex align-items-center justify-content-between ps-3 py-2">
+                    <div class="input-group input-group-sm">
+                    <span class="input-group-text px-3">
+                        <span>
                             <i class="fa-solid fa-magnifying-glass"></i>
+                        </span>
+                    </span>
+                    <input class="form-control" placeholder="Cerca o inizia una nuova chat" v-model="search"
+                        @keyup="contactsFilter">
+                    </div>
+                    <span class="px-3">
+                        <i class="fa-solid fa-grip-lines"></i>
+                    </span>
+                </div>
+                <!-- Contacts Area -->
+                <div class="ms_contacts">
+                    <div v-for="(data, index) in contacts" class="ms_contacts-card align-items-center"
+                    :class="contactIndex == index ? 'openChat' : ''" @click="currentContact(index)"
+                    v-show="data.visible == true">
+                    <img class="rounded-circle me-3 ms-3" :src="data.avatar" :alt="data.name">
+                    <div class="ms_card-info d-flex align-items-center flex-grow-1">
+                        <div class="ms_contacts-card-text mt-3">
+                        <h4>{{data.name}}</h4>
+                        <h5>{{data.messages[data.messages.length - 1].message}}</h5>
                         </div>
-                        
-                        <input type="text" placeholder="Cerca o inizia una nuova chat">
-                        
-                    </section>
-                    <section class="lastChat">
-                        fccfcfc
-
-                    </section>
-
-                </aside>
-                <!-- parte destra  -->
-                <section class="chat-right">
-                    <header>
-                        <div>
-                            <img src="img/avatar_1.jpg" alt="michele">
-                            <div>
-                                <h4>
-                                    Michele
-                                </h4>
-                                
-                                <h6>ultimo accesso oggi alle 12:00</h6>
+                        <span class="ms_time ms_margin--left px-3">18:08</span>
+                    </div>
+                    </div>
+                </div>
+                <!-- Footer area -->
+                <div class="ms_footer pt-2">
+                    <div class="ms_footer-text">
+                    I tuoi messaggi personali sono <span>crittografati end-to-end</span>.
+                    </div>
+                </div>
+                </div>
+                <!-- main content massage -->
+                <div class="col-8 ms_main-content px-0 d-flex flex-column justify-content-between">
+                    <div id='bg'></div>
+                        <!-- main top contenuto -->
+                        <div class="ms_contact-bar d-flex align-items-center justify-content-end px-3 py-2 gap-3 shadow-sm">
+                            <div class="ms_contact-info ms_margin--right d-flex align-items-center">
+                                <img class="rounded-circle me-3" :src="contacts[contactIndex].avatar" :alt="contacts[contactIndex].name">
+                                <h4 class="pt-2">{{contacts[contactIndex].name}}</h4>
                             </div>
+                            <span>
+                                <i class="fa-solid fa-magnifying-glass"></i>
+                            </span>
+                            <span>
+                                <i class="fa-solid fa-ellipsis-vertical"></i>
+                            </span>
                         </div>
-                        <div>
-                            <i class="fa-solid fa-magnifying-glass"></i>
-                            <i class="fa-solid fa-paperclip"></i>
-                            <i class="fa-solid fa-ellipsis-vertical"></i>
-                        </div>
-                    </header>
-                    <!-- main right chat -->
-                    <section class="chat">
-                        <div class="rowChat">
-                            <div class="msgGeneral">
-                                <div class="msg recived">
-                                    ciao
+                        <!-- contenuto main -->
+                        <div class="ms_main-messages flex-grow-1">
+                            <!-- Message -->
+                            <div class="ms_container g-0">
+                                <div class="mb-4" v-for="(message, index) in contacts[contactIndex].messages">
+                                    <div class="ms_fit-content" :class="message.status">
+                                        <span>
+                                            <svg :class="[message.status === 'sent' ?'ms_arrow-sent' : 'ms_arrow-received']" viewBox=" 0 0 8 13"
+                                            width="15" height="18">
+                                            <path opacity="0" fill="" d="M1.533 3.568 8 12.193V1H2.812C1.042 1 .474 2.156 1.533 3.568z">
+                                            </path>
+                                            <path fill="currentColor" d="M1.533 2.568 8 11.193V0H2.812C1.042 0 .474 1.156 1.533 2.568z">
+                                            </path>
+                                            </svg>
+                                        </span>
+                                        {{message.message}}
+                                        <span class="ms_time">18:08</span>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="rowChat">
-                            <div class="msgGeneral">
-                                <div class="msg send">
-                                    ciao bro
-                                </div>
-                            </div>
+                        <!-- barra sotto main chat  -->
+                        <div class="ms_message-bar d-flex align-items-center justify-content-between px-3 gap-3">
+                            <span>
+                                <i class="fa-regular fa-face-smile"></i>
+                            </svg>
+                            </span>
+                            <span>
+                                <i class="fa-solid fa-paperclip"></i>
+                            </span>
+                            <input type="text" name="message" id="message" class="ms_bg-msg ps-3" placeholder="Scrivi un messaggio"
+                            v-model="newMsgs" @keyup.enter="newMsg(contactIndex)">
+                            <span class="">
+                                <i class="fa-solid fa-microphone"></i>
+                            </span>
                         </div>
-                    </section>
-                    <!-- footer rightchat -->
-                    <section class="chatBar">
-                        <a href="#">
-                            <i class="fa-regular fa-face-smile"></i>
-                        </a>
-                        <input type="text" placeholder="   Scrivi un messaggio">
-                        <a href="#">
-                            <i class="fa-solid fa-microphone"></i>
-                        </a>
-                    </section>
-                </section>
+                    </div>
+                </div>
             </div>
-        
-        
-        
-        
-        
-        
-        
-        
-        </main>
+        </div>
 
-
-
-
-
-
-        <!-- my js -->
-        <script src="js/scripts.js"></script>
     </body>
+
 </html>
