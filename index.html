@@ -100,7 +100,7 @@
                 </div>
                 <!-- main content massage -->
                 <div class="col-8 ms_main-content px-0 d-flex flex-column justify-content-between">
-                    <div id='bg'></div>
+                    
                         <!-- main top contenuto -->
                         <div class="ms_contact-bar d-flex align-items-center justify-content-end px-3 py-2 gap-3 shadow-sm">
                             <div class="ms_contact-info ms_margin--right d-flex align-items-center">
@@ -115,25 +115,29 @@
                             </span>
                         </div>
                         <!-- contenuto main -->
-                        <div class="ms_main-messages flex-grow-1">
+                        
+                        <div class="ms_main-messages flex-grow-1 bg_darkmode">
                             <!-- Message -->
-                            <div class="ms_container g-0">
-                                <div class="mb-4" v-for="(message, index) in contacts[contactIndex].messages">
-                                    <div class="ms_fit-content" :class="message.status">
-                                        <span>
-                                            <svg :class="[message.status === 'sent' ?'ms_arrow-sent' : 'ms_arrow-received']" viewBox=" 0 0 8 13"
-                                            width="15" height="18">
-                                            <path opacity="0" fill="" d="M1.533 3.568 8 12.193V1H2.812C1.042 1 .474 2.156 1.533 3.568z">
-                                            </path>
-                                            <path fill="currentColor" d="M1.533 2.568 8 11.193V0H2.812C1.042 0 .474 1.156 1.533 2.568z">
-                                            </path>
-                                            </svg>
-                                        </span>
-                                        {{message.message}}
-                                        <span class="ms_time">{{message.date}}</span>
+                            
+                                <div class="ms_container g-0">
+                                    <div class="mb-4" v-for="(message, index) in contacts[contactIndex].messages">
+                                        <div class="ms_fit-content" :class="message.status">
+                                            <span>
+                                                <svg :class="[message.status === 'sent' ?'ms_arrow-sent' : 'ms_arrow-received']" viewBox=" 0 0 8 13"
+                                                width="15" height="18">
+                                                <path opacity="0" fill="" d="M1.533 3.568 8 12.193V1H2.812C1.042 1 .474 2.156 1.533 3.568z">
+                                                </path>
+                                                <path fill="currentColor" d="M1.533 2.568 8 11.193V0H2.812C1.042 0 .474 1.156 1.533 2.568z">
+                                                </path>
+                                                </svg>
+                                            </span>
+                                            {{message.message}}
+                                            <span class="ms_time">{{message.date}}</span>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
+                            
+                                
                         </div>
                         <!-- barra sotto main chat  -->
                         <div class="ms_message-bar d-flex align-items-center justify-content-between px-3 gap-3">
@@ -150,7 +154,7 @@
                                 <i class="fa-solid fa-microphone"></i>
                             </span>
                         </div>
-                    </div>
+                    
                 </div>
             </div>
         </div>
