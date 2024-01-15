@@ -253,9 +253,7 @@ i{
     z-index: 777;
 }
 
-.ms_main-content {
-    position: relative;
-}
+
 
 /* Main area send message bar */
 .ms_message-bar input {
